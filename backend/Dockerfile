@@ -1,29 +1,28 @@
 # -------- Stage 1: Build the Spring Boot application --------
-FROM maven:3.8.7-openjdk-17 AS build
+FROM eclipse-temurin:17-jdk AS build
 
-# Set working directory inside container
 WORKDIR /app
 
-# Copy pom.xml and download dependencies first (cache layer)
+# Copy pom.xml and download dependencies
 COPY pom.xml .
-RUN mvn -e -B dependency:go-offline --no-transfer-progress
+RUN ./mvnw dependency:go-offline || true
 
-# Copy entire backend source
+# Copy backend code
 COPY . .
 
-# Build the project (skip tests for faster build)
-RUN mvn clean package -DskipTests
+# Ensure mvnw is executable
+RUN chmod +x mvnw
+
+# Build the project
+RUN ./mvnw clean package -DskipTests
 
 # -------- Stage 2: Run the Spring Boot application --------
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jre
 
 WORKDIR /app
 
-# Copy the JAR file from the build stage
 COPY --from=build /app/target/*.jar app.jar
 
-# Expose default port
 EXPOSE 8080
 
-# Start the Spring Boot application
 ENTRYPOINT ["java", "-jar", "app.jar"]
