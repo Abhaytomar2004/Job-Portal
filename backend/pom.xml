@@ -9,7 +9,6 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.5.7</version>
-        <relativePath/>
     </parent>
 
     <groupId>com.mahmudalam.jobportal</groupId>
@@ -34,21 +33,21 @@
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
 
-        <!-- NEW: Add correct Mongo Java Driver -->
+        <!-- Correct Mongo Java Driver for Spring Boot 2.5.7 (VERY IMPORTANT) -->
         <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongodb-driver-sync</artifactId>
-            <version>4.11.1</version>
+            <version>4.2.3</version>
         </dependency>
 
-        <!-- OPTIONAL: For BSON -->
+        <!-- BSON library -->
         <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>bson</artifactId>
-            <version>4.11.1</version>
+            <version>4.2.3</version>
         </dependency>
 
-        <!-- Swagger 3 -->
+        <!-- Swagger -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-boot-starter</artifactId>
