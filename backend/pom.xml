@@ -5,13 +5,6 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.mahmudalam.jobportal</groupId>
-    <artifactId>spring_boot_job_portal_app</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>spring_boot_job_portal_app</name>
-    <description>Job Portal Application</description>
-
-    <!-- Spring Boot version -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -19,24 +12,13 @@
         <relativePath/>
     </parent>
 
+    <groupId>com.mahmudalam.jobportal</groupId>
+    <artifactId>spring_boot_job_portal_app</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
     <properties>
         <java.version>17</java.version>
     </properties>
-
-    <!-- --------------------- -->
-    <!-- MongoDB DRIVER (BOM)  -->
-    <!-- --------------------- -->
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.mongodb</groupId>
-                <artifactId>mongodb-driver-bom</artifactId>
-                <version>4.11.1</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <dependencies>
 
@@ -46,43 +28,39 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- MongoDB (Spring Boot Starter) -->
+        <!-- Spring Data MongoDB -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
 
-        <!-- FULL MongoDB Driver Suite -->
+        <!-- NEW: Add correct Mongo Java Driver -->
         <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongodb-driver-sync</artifactId>
+            <version>4.11.1</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.mongodb</groupId>
-            <artifactId>mongodb-driver-core</artifactId>
-        </dependency>
-
+        <!-- OPTIONAL: For BSON -->
         <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>bson</artifactId>
+            <version>4.11.1</version>
         </dependency>
 
-        <!-- Swagger 2 -->
+        <!-- Swagger 3 -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-boot-starter</artifactId>
             <version>3.0.0</version>
         </dependency>
 
-        <!-- Lombok (optional but helpful) -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
 
-        <!-- For Running Tests -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -93,21 +71,10 @@
 
     <build>
         <plugins>
-
-            <!-- Build JAR for Render deployment -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
             </plugin>
-
         </plugins>
     </build>
 
