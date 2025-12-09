@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Arrays;
 
-@Document(collection = "job_posts")
+@Document(collection = "jobposts")
 public class JobPostModel {
     @Id
     private String id;
