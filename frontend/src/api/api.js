@@ -1,9 +1,17 @@
-import axios from 'axios';
+import axios from "axios";
 
-const API_BASE = 'http://localhost:8080';
+const API = import.meta.env.VITE_API_URL;
 
-export const fetchJobs = () => axios.get(`${API_BASE}/job-posts`);
+export const api = axios.create({
+  baseURL: API,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
 
-export const searchJobs = (text) => axios.get(`${API_BASE}/job-posts/${text}`);
+// Your API functions
+export const fetchJobs = () => api.get("/job-posts");
 
-export const createJobPost = (job) => axios.post(`${API_BASE}/create-job-post`, job);
+export const searchJobs = (text) => api.get(`/job-posts/${text}`);
+
+export const createJobPost = (job) => api.post("/create-job-post", job);

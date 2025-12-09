@@ -11,7 +11,7 @@ const Footer = ({bg}) => (
           rel="noopener noreferrer"
           className="text-blue-600 font-bold hover:underline transition-all"
         >
-          Mahmud Alam
+          Abhay Tomar
         </a>
         . All rights reserved.
       </p>

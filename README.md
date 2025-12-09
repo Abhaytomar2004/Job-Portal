@@ -225,8 +225,8 @@ Contributions are welcome! Please open an issue first to discuss what you would 
 ---
 
 ## 🏆 Author
-**Mahmud Alam**  
-- 🌍 Portfolio: [Mahmud Alam](https://github.com/Abhaytomar2004)  
+**Abhay Tomar**  
+- 🌍 Portfolio: [Abhay Tomar](https://github.com/Abhaytomar2004)  
 - 📧 Email: mahmudalam.official@gmail.com  
 - 🔗 **GitHub:** [GitHub](https://github.com/Abhaytomar2004)  
 - 🔗 **LinkedIn:** [LinkedIn](https://www.linkedin.com/in/abhay-tomar-b093b3251//)  
